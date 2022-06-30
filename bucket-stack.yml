@@ -1,0 +1,23 @@
+Description: Emeka Okeke  - S3 bucket for WebApp sourceCode.
+#
+Parameters:
+  EnvironmentName:
+    Description: 
+    Type: String
+  BucketName:
+    Description: 
+    Type: String
+#
+Resources:
+  WebAppBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+    DeletionPolicy: Delete
+#
+Outputs:
+  Bucket:
+    Value: !Ref WebAppBucket
+    Description: Bucket with sourcefiles
+    Export:
+      Name: !Sub ${EnvironmentName}-BucketData
